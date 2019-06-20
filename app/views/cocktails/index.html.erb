@@ -1,0 +1,21 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1541975902628-b157a9411603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=747&q=80);">
+  <div class="container">
+    <h1>Mister cocktail </h1>
+    <p>Doesn't know how to make a cocktail is not a problem anymore!</p>
+    <%= link_to 'Create a new cocktail',  new_cocktail_path , class:"btn btn-outline-secondary"%>
+  </div>
+</div>
+
+
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= link_to cocktail.name, cocktail_path(cocktail), class:"btn btn-light" %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
