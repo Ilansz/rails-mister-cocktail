@@ -1,12 +1,26 @@
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.giphy.com/media/3o7TKDhgKC52OZhV0k/giphy.gif); height: 100vh;   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;">
+  <div class="container">
+    <h1><strong>Create a new cocktail</strong>!</h1>
+  <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
+    <div class="form-inputs text-white" style="width:250px;">
+      <%= f.input :name, placeholder:'Type a cocktail'%>
+      <div>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="form-actions btn btn-success text-white">
+      <%= f.button :submit, style:'color:white; font-weight:bold;'%>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>
+
+
+

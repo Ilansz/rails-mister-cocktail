@@ -6,16 +6,20 @@
   </div>
 </div>
 
-
-<div class="cards">
-  <% @cocktails.each do |cocktail| %>
-
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
-      <%= link_to cocktail.name, cocktail_path(cocktail), class:"btn btn-light" %>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="cards" style="margin:10px;">
+    <% @cocktails.each do |cocktail| %>
+    <% if  !(cocktail.photo.url.nil?) %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path cocktail.photo, height: 300, width: 400, crop: :fill %>)">
+        <%= link_to cocktail.name, cocktail_path(cocktail), class:"text-white" %>
+      </div>
+      <% else %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+        <%= link_to cocktail.name, cocktail_path(cocktail), class:"text-white" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
 
 
 
