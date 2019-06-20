@@ -1,17 +1,36 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo %>')">
+<%= link_to 'Back', root_path  %>
   <div class="container">
     <h1><strong> <%= @cocktail.name %> </strong></h1>
   </div>
 </div>
 
-<div class="container"></div>
-  <% @cocktail.doses.each do|dose| %>
-  <p><%= dose.description %> of <%= dose.ingredient.name %>  <%= link_to "Delete", dose_path(dose),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %></p>
-  <% end %>
+
+
+<header>
+  <div id="bubbles">
+          <div class="bubble x1"></div>
+          <div class="bubble x2"></div>
+          <div class="bubble x3"></div>
+          <div class="bubble x4"></div>
+          <div class="bubble x5"></div>
+          <div class="bubble x6"></div>
+          <div class="bubble x7"></div>
+          <div class="bubble x8"></div>
+          <div class="bubble x9"></div>
+          <div class="bubble x10"></div>
+  <div class="container">
+    <ul>
+    <% @cocktail.doses.each do|dose| %>
+    <li><%= dose.description %> of <%= dose.ingredient.name %>  <%= link_to "🗑", dose_path(dose),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %></li>
+    <% end %>
+    </ul>
+<%= link_to 'Add a dose +', new_cocktail_dose_path(@cocktail), class:"btn btn-outline-secondary"  %>
+  </div>
 </div>
+  </div>
+</header>
 
-<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail)  %> |
-<%= link_to 'Back', root_path  %>
-
+<img src="http://static.indigoimages.ca/2015/shop/111692_LP_WeddingShop-animated-header-dots.gif" alt="" style="width: 100%;/>
