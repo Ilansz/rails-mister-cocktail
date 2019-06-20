@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require_tree .
 
-import { initUpdateNavbarOnScroll } from '../components/navbar';
-initUpdateNavbarOnScroll();
+// import { initUpdateNavbarOnScroll } from '../components/navbar';
+// initUpdateNavbarOnScroll();
